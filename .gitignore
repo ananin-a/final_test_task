@@ -125,3 +125,4 @@ dmypy.json
 .pyre/
 .idea
 .pytest_cache
+.DS_Store

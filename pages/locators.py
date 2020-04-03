@@ -16,3 +16,12 @@ class LoginPageLocators:
     REGISTER_PASSWORD = (By.CSS_SELECTOR, '#id_registration-password1')
     REGISTER_CONFIRM_PASSWORD = (By.CSS_SELECTOR, '#id_registration-password2')
     REGISTER_BUTTON = (By.XPATH, '//button[@name="registration_submit"]')
+
+
+class ProductPageLocators:
+    ADD_TO_BASKET_BUTTON = (By.XPATH, '//button[@value="Add to basket"]')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alert-success:nth-child(1)')
+    ITEM_NAME = (By.CSS_SELECTOR, '.product_main h1')
+    ITEM_NAME_IN_MESSAGE = (By.CSS_SELECTOR, '.alert-success:nth-child(1) div.alertinner strong')
+    PRICE = (By.XPATH, '//p[@class="price_color"]')
+    PRICE_BASKET = (By.XPATH, '//div[@class="alertinner "]/p/strong')
