@@ -3,9 +3,6 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def should_be_product_url(self):
-        assert '?promo=newYear' in self.browser.current_url, 'Invalid Page.'
-
     def should_be_button_add_basket(self):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), 'Missing button "Add to basket"'
 
