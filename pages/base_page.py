@@ -14,13 +14,21 @@ class BasePage:
         self.url = url
         # self.browser.implicitly_wait(timeout)  # неявныое ожидание
 
+    def go_to_the_basket(self):
+        link = self.browser.find_element(*BasePageLocators.VIEW_BASKET)
+        link.click()
+        assert 'basket' in self.browser.current_url, \
+            'This is not basket page'
+
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
-        assert 'login' in self.browser.current_url, 'This is not login page'
+        assert 'login' in self.browser.current_url, \
+            'This is not login page'
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), \
+            'Login link is not presented'
 
     # Открыть страницу
     def open(self):
