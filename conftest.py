@@ -12,7 +12,7 @@ def pytest_addoption(parser):
 
 
 # Фикстуры, которые будут применяться ко всем тестам в сьюте
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='function')  # Параметр 'function' передается по умолчанию
 # Функция принимает на вход request, то есть то, что мы ввели в консоли через addoption: browser, language
 def browser(request):
     # Получаем название браузера из параметров в терминале или берем дефолтное значение, если параметр не бы передан
