@@ -20,16 +20,16 @@
 
 	```bash
 	sudo apt-get install -y python3.8-venv
-	mkdir ~/env
-	cd ~/env
+	mkdir ~/venv
+	cd ~/venv
 	python3 -m venv selenium
 	```
 
 4. Activate a virtual environment:
 
 	```bash
-	cd ~/env
-	source selenium/bin/activate
+	cd ~/venv
+	source venv/bin/activate
 	```
 
 5. Install the necessary environment requirements (libraries, modules, packages etc.):

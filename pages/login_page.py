@@ -3,38 +3,41 @@ from .locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
-    # проверка страници логина/регистрации
+    """Методы страницы регистрации и входа."""
+
     def should_be_login_page(self):
+        """Проверка всех форм на странице Входа/Регистрации."""
         self.should_be_login_url()
         self.should_be_login_form()
         self.should_be_register_form()
 
-    # Проверка на той ли мы странице
     def should_be_login_url(self):
-        assert 'login' in self.browser.current_url, 'Invalid Page'
+        """Проверка что мы на странице логина."""
+        assert "login" in self.browser.current_url, \
+            ">>> This is not a login page."
 
-    # должна быть форма логина
     def should_be_login_form(self):
-        assert self.is_element_present(*LoginPageLocators.LOGIN_IN_EMAIL), \
-            'Missing field Login_in_Email'
-        assert self.is_element_present(*LoginPageLocators.LOGIN_IN_PASSWORD), \
-            'Missing field Login_in_Password'
-        assert self.is_element_present(*LoginPageLocators.LOGIN_IN_BUTTON), \
-            'Missing Login_in_Button'
+        """Должна быть форма логина."""
+        assert self.is_element_present(*LoginPageLocators.LOGIN_EMAIL), \
+            ">>> Not found 'LOGIN_EMAIL' field."
+        assert self.is_element_present(*LoginPageLocators.LOGIN_PASSWORD), \
+            ">>> Not found 'LOGIN_PASSWORD' field."
+        assert self.is_element_present(*LoginPageLocators.LOGIN_BUTTON), \
+            ">>> Not found 'LOGIN_BUTTON' field."
 
-    # должна быть форма регистрации
     def should_be_register_form(self):
+        """Должна быть форма регистрации."""
         assert self.is_element_present(*LoginPageLocators.REGISTER_EMAIL), \
-            'Missing field Register_in_Email'
+            ">>> Not found 'REGISTER_EMAIL' field."
         assert self.is_element_present(*LoginPageLocators.REGISTER_PASSWORD), \
-            'Missing field Register_Password'
+            ">>> Not found 'REGISTER_PASSWORD' field."
         assert self.is_element_present(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD), \
-            'Missing field Register_Confirm_Password'
+            ">>> Not found 'REGISTER_CONFIRM_PASSWORD' field."
         assert self.is_element_present(*LoginPageLocators.REGISTER_BUTTON), \
-            'Missing field Register_Button'
+            ">>> Not found 'REGISTER_BUTTON' field."
 
-    # регистрация нового пользователя
-    def register_new_user(self, email, password):
+    def register_new_user(self, email: str, password: str):
+        """Регистрация нового пользователя."""
         self.browser.find_element(*LoginPageLocators.REGISTER_EMAIL).send_keys(email)
         self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD).send_keys(password)
         self.browser.find_element(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD).send_keys(password)
