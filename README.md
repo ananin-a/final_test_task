@@ -20,15 +20,14 @@
 
 	```bash
 	sudo apt-get install -y python3.8-venv
-	mkdir ~/venv
-	cd ~/venv
+ 
+	cd ./Downloads/final_test_task-master
 	python3 -m venv selenium
 	```
 
 4. Activate a virtual environment:
 
 	```bash
-	cd ~/venv
 	source venv/bin/activate
 	```
 
